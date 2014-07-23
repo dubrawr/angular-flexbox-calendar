@@ -15,8 +15,12 @@
   </select>
 </nav>
 
-<div my-calendar="currentDate" ng-class="{outer: !isCurrentMonth(day.date)}">
-  {{ day.date.getDate() }}
+<div my-calendar="currentDate">
+  <div class="calendar-cell" ng-class="{outer: !isCurrentMonth(day.date)}">{{ day.date.getDate() }}</div>
+</div>
+
+<div my-simple-calendar="currentDate">
+  <div class="calendar-cell" ng-class="{outer: !isCurrentMonth(day.date)}">{{ day.date.getDate() }}</div>
 </div>
 
 <script type="text/javascript" src="https://code.angularjs.org/1.3.0-beta.9/angular.js"></script>

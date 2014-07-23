@@ -53,11 +53,26 @@ angular.module("MyApp", [])
             var newScope = containerScope.$new();
             newScope.day = day;
             transclude(newScope, function(newElement) {
-              newElement.addClass('calendar-cell');
               container.append(newElement);
             });
           });
         });
       }
+    }
+  })
+  .directive('mySimpleCalendar', function() {
+    return {
+      transclude : true,
+      controller : ['$scope', '$attrs', function($scope, $attrs) {
+        $scope.$watch($attrs.mySimpleCalendar, function(date) {
+          if(!date) return;
+          $scope.days = CalendarRange.getMonthlyRange(date).days;
+        });
+      }],
+      template : '<div class="calendar-container">' +
+                  '<div ng-repeat="day in days">' +
+                   '<div ng-transclude></div>' +
+                  '</div>' +
+                 '</div>'
     }
   });

@@ -23,16 +23,24 @@ body {
   text-transform:capitalize;
 }
 
-.calendar-cell {
+.calendar-container > div {
   border:1px solid #ddd;
   max-width:14%;
   min-width:14%;
-  box-sizing:border-box;
-  padding:10px;
   font-size:2em;
+  position:relative;
+}
+
+.calendar-container > div,
+.calendar-container > div > div,
+.calendar-container .calendar-cell {
+  box-sizing:border-box;
   height:200px;
 }
 
+.calendar-cell {
+  padding:10px;
+}
 .calendar-cell.outer {
   background:#eee;
 }
